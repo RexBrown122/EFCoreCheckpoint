@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace App.Models
 {
     public class Student
@@ -6,7 +8,7 @@ namespace App.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public enum Classification { Freshman, Sophomore, Junior, Senior }
+        public Classification ClassYear { get; set; }
         public List<Grades> GradesList { get; set; }
     }
 }
