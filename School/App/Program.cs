@@ -18,10 +18,18 @@ namespace App
             students.ToList().ForEach(student => Console.WriteLine($"Student Name: {student.FirstName} {student.LastName}"));
 
             // Selecting a student and showing their grades
-            // var students2 = from student in database.Students select new {ID = student.ID, Grades = student.GradesList};
-            // students2.ToList().ForEach(student => Console.WriteLine($"Student Grades: {student.ID} : {student.Grades}"));
+            Console.WriteLine("\nStudents and their grades:");
+            var students2 = from student in database.Students where student.ID < 6 select new {ID = student.ID, Grades = student.GradesList};
+            students2.ToList().ForEach(student => student.Grades.ToList().ForEach(grade => Console.WriteLine($"StudentID: {grade.StudentID}\nGrade: {grade.Grade}")));
 
             // Selecting a student and showing AVG grade
+            Console.WriteLine("\nStudent 2 with their AVG Grade:");
+            float total = 0;
+            int count = 0;
+            var students3 = from student in database.Students where student.ID == 2 select new {ID = student.ID, Grades = student.GradesList};
+            students2.ToList().ForEach(student => student.Grades.ToList().ForEach(grade => total += grade.Grade));
+            students2.ToList().ForEach(student => student.Grades.ToList().ForEach(grade => count++));
+            Console.WriteLine($"StudentID: 2\nAVG Grade: {total / count}");
 
             // Student with the highest AVG grade
 
